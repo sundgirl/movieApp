@@ -1,0 +1,4 @@
+<p>Movies</p>
+<ul *ngFor="let movie of movies">
+  <li><a target="_blank" [routerLink]="[movie.id]" >{{movie.title}}</a></li>
+</ul>
