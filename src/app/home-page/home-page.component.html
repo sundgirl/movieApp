@@ -1,11 +1,9 @@
 <div class="container">
   <h2 class="text-center">The most popular movies</h2>
-  <div class="movies">
-    <div *ngFor="let movie of movies">
-      <div class="col col-sm card">
-        <span><a target="_blank" [routerLink]="[movie.id]" >{{movie.title}}</a></span>
-        <span><i class="fa fa-star"></i>{{movie.vote_average}}</span>
-      </div>
+  <div class="movies" *ngFor="let movie of movies">
+    <div class="col col-sm card">
+      <span><a target="_blank" [routerLink]="[movie.id]" >{{movie.title}}</a></span>
+      <span><i class="fa fa-star"></i>{{movie.vote_average}}</span>
     </div>
   </div>
 </div>

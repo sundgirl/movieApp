@@ -10,10 +10,7 @@ export class HomePageComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    this.apiService.getPopularMovies().subscribe((data) => {
-      console.log(data);
-      this.movies = data['results'];
-    });
+    this.apiService.getPopularMovies().subscribe((data) => this.movies = data['results']);
   }
 
 }

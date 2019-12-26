@@ -26,15 +26,10 @@ export class OneMoviePageComponent implements OnInit {
   }
 
   getInfo() {
-    this.apiService.getMoreInfo(this.movieId).subscribe(data => {
-      console.log(data);
-      this.movie = data;
-      });
+    this.apiService.getMoreInfo(this.movieId).subscribe(data => this.movie = data);
   }
 
   getSimilar() {
-    this.apiService.getSimilar(this.movieId).subscribe(data => {
-      this.similarMovies = data['results'];
-      });
+    this.apiService.getSimilar(this.movieId).subscribe(data => this.similarMovies = data['results']);
   }
 }

@@ -1,8 +1,7 @@
 <div class="container card">
   <h1>{{movie.title}}</h1>
   <div class="description">
-    <p>Description:</p>
-    <p>{{movie.overview}}</p>
+    <p>Description: {{movie.overview}}</p>
   </div>
   <div class="genre">
     <p>Genre:</p>
@@ -19,6 +18,8 @@
   </div>
   <p>Date of release: {{movie['release_date']}}</p>
   <p>Revenue: {{movie['revenue']}}$</p>
+  <p>Budget: {{movie['budget']}}$</p>
+  <p>Status: {{movie['status']}}</p>
   <span><a href="{{movie.homepage}}" class="h3">Watch the movie</a></span>
   <div class="similar">
     <p>Similar movies:</p>
