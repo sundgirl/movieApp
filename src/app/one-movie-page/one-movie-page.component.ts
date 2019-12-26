@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Router, ActivatedRoute, Params} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
-import { of, Observable } from 'rxjs';
-import { delay } from 'rxjs/internal/operators';
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-one-movie-page',
   templateUrl: './one-movie-page.component.html',
@@ -10,6 +10,7 @@ import { delay } from 'rxjs/internal/operators';
 })
 export class OneMoviePageComponent implements OnInit {
   movie: object;
+  similarMovies: [];
   movieId: number;
   constructor(private activatedRoute: ActivatedRoute,
               private apiService: ApiService) { }
@@ -17,18 +18,23 @@ export class OneMoviePageComponent implements OnInit {
   ngOnInit() {
     this.getId();
     this.getInfo();
+    this.getSimilar();
   }
 
-  getId() {
+  getId(): Observable<any> {
     return this.movieId = this.activatedRoute.snapshot.params['id'];
   }
 
-  getInfo(): Observable<any> {
+  getInfo() {
     this.apiService.getMoreInfo(this.movieId).subscribe(data => {
       console.log(data);
       this.movie = data;
       });
-    return of(this.movie).pipe(delay(3000));
   }
 
+  getSimilar() {
+    this.apiService.getSimilar(this.movieId).subscribe(data => {
+      this.similarMovies = data['results'];
+      });
+  }
 }

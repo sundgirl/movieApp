@@ -1,0 +1,7 @@
+.genre, .company {
+  display: flex;
+}
+
+.genre p, .company p {
+  padding-right: 15px;
+}

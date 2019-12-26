@@ -1,0 +1,38 @@
+.movies {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 15px;
+}
+
+.card {
+  height: 100px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.fa-star {
+  color: #f7e302;
+}
+
+h2 {
+color:#00539c;
+}
+
+@media(max-width: 778px) {
+  .movies {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media(max-width: 560px) {
+  .movies {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 460px) {
+  .movies {
+    grid-template-columns: 1fr;
+  }
+}

@@ -6,7 +6,7 @@ import { ApiService } from '../api.service';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  movies;
+  movies: object;
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {

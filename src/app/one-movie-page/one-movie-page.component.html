@@ -1,1 +1,32 @@
-<p>More info about movie {{movie.title}}<p>
+<div class="container card">
+  <h1>{{movie.title}}</h1>
+  <div class="description">
+    <p>Description:</p>
+    <p>{{movie.overview}}</p>
+  </div>
+  <div class="genre">
+    <p>Genre:</p>
+    <span *ngFor="let genre of movie['genres']">
+      <p class="text-primary">{{genre.name}}</p>
+    </span>
+  </div>
+  <p *ngIf="movie['adult']" class="text-danger">Only for adult</p>
+  <div class="company">
+    <p>Production companies:</p>
+    <span *ngFor="let company of movie['production_companies']">
+      <p class="text-primary">{{company.name}}</p>
+    </span>
+  </div>
+  <p>Date of release: {{movie['release_date']}}</p>
+  <p>Revenue: {{movie['revenue']}}$</p>
+  <span><a href="{{movie.homepage}}" class="h3">Watch the movie</a></span>
+  <div class="similar">
+    <p>Similar movies:</p>
+  </div>
+  <p *ngIf="similarMovies == false">Not Found similar movies</p>
+  <div *ngFor="let item of similarMovies">
+    <div class="col-sm card">
+    <span><a href="{{item.id}}">{{item.title}}</a></span>
+    </div>
+  </div>
+</div>
